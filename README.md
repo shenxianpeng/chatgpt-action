@@ -1,22 +1,13 @@
-# 微信公账号接入 ChatGPT
+# ChatGTP Action
 
-## 前提条件
-
-1. 一个微信公众号
-2. 一个 OpenAI 账号
-3. 一台可以访问墙外的服务器
-
-注册 OpenAI 账号网上有很多教程
-
-
-## 生成 OPENAI_API_KEY
-
-打开 https://platform.openai.com/account/api-keys 来生成 OPENAI_API_KEY
+## Get started
 
 ```bash
+# Generate OPENAI_API_KEY from https://platform.openai.com/account/api-keys
 export OPENAI_API_KEY="your-openai-api-key"
+python3 main.py --prompt "Hello ChatGPT!"
 ```
 
-## 获取实例代码
+## Get example code
 
-访问 https://platform.openai.com/examples -> Q&A -> Open in Playground
+Visit https://platform.openai.com/examples -> Q&A -> Open in Playground

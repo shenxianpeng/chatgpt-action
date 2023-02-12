@@ -1,0 +1,30 @@
+name: main
+
+on:
+  workflow_dispatch:
+    inputs:
+      prompt: 
+        description: 'A well-written prompt provides to ChatGPT'
+        default: 'Hello ChatGTP'
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+    - name: Install dependencies
+      run: pip3 install -r requirements.txt
+    - name: Run app
+      run: python3 main.py --prompt "${{ github.event.inputs.prompt }}"
+      env: 
+        OPENAI_API_KEY: ${{secrets.OPENAI_API_KEY}}
