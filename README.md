@@ -1,4 +1,6 @@
-# ChatGTP Action
+# Run ChatGTP with GitHub Action
+
+![Chat Summary](image.png)
 
 ## Get started
 
