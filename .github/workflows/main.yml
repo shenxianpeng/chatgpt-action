@@ -25,6 +25,11 @@ jobs:
     - name: Install dependencies
       run: pip3 install -r requirements.txt
     - name: Run app
-      run: python3 main.py --prompt "${{ github.event.inputs.prompt }}"
+      run: |
+        python3 main.py --prompt "${{ github.event.inputs.prompt }}" > result.txt
+        echo "### From ChatGPT 💬" >> "$GITHUB_STEP_SUMMARY"
+        echo '```' >> "$GITHUB_STEP_SUMMARY"
+        cat result.txt >> "$GITHUB_STEP_SUMMARY"
+        echo '```' >> "$GITHUB_STEP_SUMMARY"
       env: 
         OPENAI_API_KEY: ${{secrets.OPENAI_API_KEY}}
