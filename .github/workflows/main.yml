@@ -12,10 +12,8 @@ permissions:
   contents: read
 
 jobs:
-  build:
-
+  chat:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python 3.10
@@ -27,7 +25,7 @@ jobs:
     - name: Run app
       run: |
         python3 main.py --prompt "${{ github.event.inputs.prompt }}" > result.txt
-        echo "### From ChatGPT 💬" >> "$GITHUB_STEP_SUMMARY"
+        echo "### 💬 From ChatGPT" >> "$GITHUB_STEP_SUMMARY"
         echo '```' >> "$GITHUB_STEP_SUMMARY"
         cat result.txt >> "$GITHUB_STEP_SUMMARY"
         echo '```' >> "$GITHUB_STEP_SUMMARY"
